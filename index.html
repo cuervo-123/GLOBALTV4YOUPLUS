@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mi TV Station</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      display: flex;
+    }
+
+    /* Menú izquierdo */
+    #menu {
+      width: 250px;
+      background: #222;
+      padding: 20px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+    }
+
+    #menu button {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 12px;
+      background: #333;
+      color: #00ffd5;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    #menu button:hover {
+      background: #00ffd5;
+      color: #000;
+    }
+
+    /* Contenedor principal */
+    #content {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .section {
+      display: none;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    video {
+      width: 100%;
+      max-width: 600px;
+      border: 2px solid #00ffd5;
+      border-radius: 10px;
+      background: #000;
+    }
+
+    audio {
+      width: 100%;
+      max-width: 600px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Menú -->
+  <div id="menu">
+    <button onclick="mostrarSeccion('tv')">📺 TV en Vivo</button>
+    <button onclick="mostrarSeccion('musica')">🎵 Reproductor Música</button>
+  </div>
+
+  <!-- Contenido -->
+  <div id="content">
+    
+    <!-- 4 monitores Aleatorios  y youtube integrado  -->
+<div id="tv" class="section active">
+    <h2>📺 TV en Vivo</h2>
+    <p>Aplicación web de IPTV con soporte para 4 pantallas simultáneas, playlists en M3U y JSON, interfaz oscura, favoritos, reproducción automática y vista previa en vivo, youtube  superload . Haz clic abajo para abrir Mi TV Station :</p>
+    <button onclick="window.location.href='https://cuervo-123.github.io/mi-tv-station-v-10.1/'">
+      🌐 Ir 4 monitors pro
+    </button>
+  </div>
+
+  <!-- Country Iptv central-->
+<div id="tv" class="section active">
+    <h2>📺 TV en Vivo</h2>
+    <p>Aplicación web de IPTV  reproducción automática por pais  . Haz clic abajo para abrir Country Iptv central :</p>
+    <button onclick="window.location.href='https://cuervo-123.github.io/tv4you/'">
+      🌐 Ir a Mi Country Iptv central
+    </button>
+  </div>
+  <!-- My Tv Station Upload Central -->
+<div id="tv" class="section active">
+  <h2>📺 TV en Vivo</h2>
+  <p>Aplicación web de IPTV Uploads, playlists en M3U y JSON, interfaz oscura, favoritos, reproducción automática y vista previa en vivo, carga  de canales para  audultos  interna   :</p>
+  <button onclick="window.location.href='https://cuervo-123.github.io/mi-tv-station/'">
+    🌐 Ir a My Tv Station Upload Central
+  </button>
+</div>
+<!-- 4 pantallas  sistema  aleatorio (Youtube Integration)-->
+<div id="tv" class="section active">
+  <h2>📺 TV en Vivo</h2>
+  <p>Aplicación web de IPTV con soporte para 4 pantallas simultáneas, playlists en M3U y JSON, interfaz oscura, favoritos, reproducción automática y vista previa en vivo, youtube  superload . Haz clic abajo para abrir Mi TV Station :</p>
+  <button onclick="window.location.href='https://cuervo-123.github.io/mi-tv-station-v-10.1/'">
+    🌐 Ir a Mi 4 pantallas  sistema  aleatorio (Youtube Integration)
+  </button>
+</div>
+
+
+    
+  </script>
+
+</body>
+</html>
