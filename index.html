@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mi TV Station</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <style>
     body {
       margin: 0;
@@ -13,7 +14,13 @@
       display: flex;
     }
 
-   
+    #menu {
+      width: 200px;
+      padding: 20px;
+      background: #000;
+      position: relative;
+      z-index: 2;
+    }
 
     #menu button {
       display: block;
@@ -32,10 +39,11 @@
       color: #000;
     }
 
-    /* Contenedor principal */
     #content {
       flex: 1;
       padding: 30px;
+      position: relative;
+      z-index: 2;
     }
 
     .section {
@@ -46,81 +54,184 @@
       display: block;
     }
 
-    video {
+    .swiper {
       width: 100%;
-      max-width: 600px;
-      border: 2px solid #00ffd5;
-      border-radius: 10px;
-      background: #000;
+      max-width: 900px;
+      height: 250px;
+      margin: 30px auto;
     }
 
-    audio {
+    .swiper-slide {
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .swiper-slide img {
       width: 100%;
-      max-width: 600px;
-      margin-top: 20px;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* Fondo dinámico real */
+    #monitor-fondo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.07;
+      transition: background-image 1s ease;
     }
   </style>
 </head>
 <body>
 
+  <div id="monitor-fondo"></div>
+
   <!-- Menú -->
   <div id="menu">
-    <button onclick="mostrarSeccion('tv')">📺 TV en Vivo</button>
-    </div>
+    <button onclick="mostrarSeccion('tv1')">🌐 4 Monitors Pro</button>
+    <button onclick="mostrarSeccion('tv2')">🌐 Country IPTV</button>
+    <button onclick="mostrarSeccion('tv3')">🌐 Upload Central</button>
+    <button onclick="mostrarSeccion('tv4')">🌐 Editor y Exportador</button>
+    <button onclick="mostrarSeccion('tv5')">🌐 Mega Editor Pro</button>
+    <button onclick="mostrarSeccion('tv6')">🌐 Movies Central</button>
+  </div>
 
   <!-- Contenido -->
   <div id="content">
     
-    <!-- 4 monitores Aleatorios  y youtube integrado  -->
-<div id="tv" class="section active">
-    <h2>📺 TV en Vivo</h2>
-    <p>Aplicación web de IPTV con soporte para 4 pantallas simultáneas, playlists en M3U y JSON, interfaz oscura, favoritos, reproducción automática y vista previa en vivo, youtube  superload . Haz clic abajo para abrir Mi TV Station :</p>
-    <button onclick="window.location.href='https://cuervo-123.github.io/mi-tv-station-v-10.1/'">
-      🌐 Ir 4 monitors pro
-    </button>
+    <!-- Carrusel dinámico -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper" id="swiper-wrapper"></div>
+    </div>
+
+    <!-- Secciones -->
+    <div id="tv1" class="section active">
+      <h2>📺 TV en Vivo</h2>
+      <p>App IPTV con 4 pantallas simultáneas, M3U/JSON, favoritos, YouTube y más.</p>
+      <button onclick="window.location.href='https://cuervo-123.github.io/mi-tv-station-v-10.1/'">🌐 Ir 4 Monitors Pro</button>
+    </div>
+
+    <div id="tv2" class="section">
+      <h2>📺 Country IPTV</h2>
+      <p>Reproducción automática por país.</p>
+      <button onclick="window.location.href='https://cuervo-123.github.io/tv4you/'">🌐 Ir a Country IPTV</button>
+    </div>
+
+    <div id="tv3" class="section">
+      <h2>📺 Upload Central</h2>
+      <p>Canales adultos internos, playlists M3U y JSON.</p>
+      <button onclick="window.location.href='https://cuervo-123.github.io/mi-tv-station/'">🌐 Ir a Upload Central</button>
+    </div>
+
+    <div id="tv4" class="section">
+      <h2>📺 Editor y Exportador</h2>
+      <p>Edita y exporta listas M3U y JSON.</p>
+      <button onclick="window.location.href='https://cuervo-123.github.io/GLOBALTV4YOU/'">🌐 Ir a Editor y Exportador</button>
+    </div>
+
+    <div id="tv5" class="section">
+      <h2>📺 Mega Editor Pro</h2>
+      <p>Editor avanzado con fusión, YouTube, exportador y aleatorio por monitor.</p>
+      <button onclick="window.location.href='https://cuervo-123.github.io/Editor-iptv-Plus/'">🌐 Ir a Mega Editor Pro</button>
+    </div>
+
+    <div id="tv6" class="section">
+      <h2>🎬 Movies Central</h2>
+      <p>App para películas con diseño moderno.</p>
+      <button onclick="window.location.href='https://movie-verse-sage.vercel.app/'">🌐 Ir a Movies Central</button>
+    </div>
   </div>
 
-  <!-- Country Iptv central-->
-<div id="tv" class="section active">
-    <h2>📺 TV en Vivo</h2>
-    <p>Aplicación web de IPTV  reproducción automática por pais  . Haz clic abajo para abrir Country Iptv central :</p>
-    <button onclick="window.location.href='https://cuervo-123.github.io/tv4you/'">
-      🌐 Ir a Mi Country Iptv central
-    </button>
-  </div>
-  <!-- My Tv Station Upload Central -->
-<div id="tv" class="section active">
-  <h2>📺 TV en Vivo</h2>
-  <p>Aplicación web de IPTV Uploads, playlists en M3U y JSON, interfaz oscura, favoritos, reproducción automática y vista previa en vivo, carga  de canales para  audultos  interna   :</p>
-  <button onclick="window.location.href='https://cuervo-123.github.io/mi-tv-station/'">
-    🌐 Ir a My Tv Station Upload Central
-  </button>
-</div>
-<!-- Editor  de  Canales AND Esportar Favoritos Central )-->
-<div id="tv" class="section active">
-  <h2>📺 TV en Vivo</h2>
-  <p>Aplicación web de IPTV , playlists en M3U y JSON, interfaz oscura, favoritos,grandioso  Para Editar Y  exportar Listas  en formatos .m3u y .json . Haz clic abajo para abrir Mi TV Station :</p>
-  <button onclick="window.location.href='https://cuervo-123.github.io/GLOBALTV4YOU/'">
-    🌐 Ir a Mi Editor  de  Canales AND Esportar Favoritos Central
-  </button>
-</div>
-<!-- Mega Editor Pro  All Central App )-->
-<div id="tv" class="section active">
-  <h2>📺 TV en Vivo</h2>
-  <p>Aplicación web de IPTV , playlists en M3U y JSON, interfaz oscura, favoritos,grandioso  Para Editar tus listas de canales preferidos  ,Guarda  tus canales preferidos ,en fuete de datos interna , Exportar Listados M3U,JSON  ,Fusion independiente por monitor Para youtube y sistema aleatorio integrado ,  Haz clic abajo para abrir Mi TV Station :</p>
-  <button onclick="window.location.href='https://cuervo-123.github.io/Editor-iptv-Plus/'">
-    🌐 Ir a Editor Pro  All Central App 
-  </button>
-</div>
-    <!-- MOVIES Central App )-->
-<div id="tv" class="section active">
-  <h2>📺 TV en Vivo</h2>
-  <p>Aplicación web de IPTV , playlists en M3U y JSON, interfaz oscura, favoritos,grandioso  Para Editar tus listas de canales preferidos  ,Guarda  tus canales preferidos ,en fuete de datos interna , Exportar Listados M3U,JSON  ,Fusion independiente por monitor Para youtube y sistema aleatorio integrado ,  Haz clic abajo para abrir Mi TV Station :</p>
-  <button onclick="window.location.href='https://movie-verse-sage.vercel.app/'">
-    🌐 Ir a movies Central App 
-  </button>
-</div>    
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    function mostrarSeccion(id) {
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    async function cargarLogosDesdeM3U(url) {
+      const response = await fetch(url);
+      const texto = await response.text();
+      const lineas = texto.split('\n');
+      const logos = [];
+      for (let linea of lineas) {
+        if (linea.includes('tvg-logo')) {
+          const match = linea.match(/tvg-logo="([^"]+)"/);
+          if (match) logos.push(match[1]);
+        }
+      }
+      return logos;
+    }
+
+    async function cargarLogosDesdeJSON(url) {
+      const response = await fetch(url);
+      const datos = await response.json();
+      return datos.map(c => c.logo).filter(Boolean);
+    }
+
+    async function iniciar() {
+      let logos = [];
+      try {
+        logos = await cargarLogosDesdeJSON('canales.json');
+      } catch {
+        try {
+          logos = await cargarLogosDesdeM3U('update3.m3u');
+        } catch {
+          console.error("No se pudieron cargar logos.");
+        }
+      }
+
+      console.log(`✅ ${logos.length} logos cargados`);
+
+      // Carrusel
+      const wrapper = document.getElementById('swiper-wrapper');
+      logos.slice(0, 10).forEach(logo => {
+        const slide = document.createElement('div');
+        slide.className = 'swiper-slide';
+        slide.innerHTML = `<img src="${logo}" alt="Canal" />`;
+        wrapper.appendChild(slide);
+      });
+
+      new Swiper(".mySwiper", {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        breakpoints: {
+          0: { slidesPerView: 1 },
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+        }
+      });
+
+      // Fondo dinámico usando background-image
+      const monitor = document.getElementById("monitor-fondo");
+      let index = 0;
+
+      if (logos.length > 0) {
+        monitor.style.backgroundImage = `url('${logos[index]}')`;
+        setInterval(() => {
+          index = (index + 1) % logos.length;
+          monitor.style.backgroundImage = `url('${logos[index]}')`;
+        }, 30000); // cada 30 segundos
+      }
+    }
+
+    iniciar();
   </script>
-
 </body>
 </html>
