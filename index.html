@@ -183,10 +183,10 @@
     async function iniciar() {
       let logos = [];
       try {
-        logos = await cargarLogosDesdeJSON('canales.json');
+        logos = await cargarLogosDesdeJSON('');
       } catch {
         try {
-          logos = await cargarLogosDesdeM3U('update2.m3u');
+          logos = await cargarLogosDesdeM3U('serie particion lote documentario .m3u');
         } catch {
           console.error("No se pudieron cargar logos.");
         }
