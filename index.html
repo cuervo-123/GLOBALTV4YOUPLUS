@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -174,7 +175,7 @@
       return logos;
     }
 
-    async function cargarLogosDesdem3u(url) {
+    async function cargarLogosDesdeJSON(url) {
       const response = await fetch(url);
       const datos = await response.json();
       return datos.map(c => c.logo).filter(Boolean);
@@ -183,7 +184,7 @@
     async function iniciar() {
       let logos = [];
       try {
-        logos = await cargarLogosDesdeM3U('serie particion lote documentario .m3u');
+        logos = await cargarLogosDesdeJSON('');
       } catch {
         try {
           logos = await cargarLogosDesdeM3U('serie particion lote documentario .m3u');
