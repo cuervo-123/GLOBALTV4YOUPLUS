@@ -174,7 +174,7 @@
       return logos;
     }
 
-    async function cargarLogosDesdeJSON(url) {
+    async function cargarLogosDesdem3u(url) {
       const response = await fetch(url);
       const datos = await response.json();
       return datos.map(c => c.logo).filter(Boolean);
