@@ -183,7 +183,7 @@
     async function iniciar() {
       let logos = [];
       try {
-        logos = await cargarLogosDesdeJSON('');
+        logos = await cargarLogosDesdeM3U('serie particion lote documentario .m3u');
       } catch {
         try {
           logos = await cargarLogosDesdeM3U('serie particion lote documentario .m3u');
